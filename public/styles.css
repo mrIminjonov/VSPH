@@ -1,0 +1,367 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background-color:#1e3a5f;
+    padding: 10px 0;
+    border-bottom: 3px solid #1e3a5f;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 300px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 2px solid #1e3a5f;
+    border-radius: 20px;
+    width: 300px;
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: -30px;
+}
+/* Stats Container */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+    background: #fff;
+    text-align: center;
+}
+
+/* Individual Stat Box */
+.stat-box {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+/* Stat Number */
+.stat-box h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Plus sign */
+.stat-box h2::after {
+    content: "+";
+    font-size: 24px;
+    color: #333;
+    margin-left: 5px;
+}
+
+/* Description Text */
+.stat-box p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Underline Decoration */
+.stat-box::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background-color: #1e5b8c;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Differently colored underlines */
+.stat-box:nth-child(2)::after {
+    background-color: #e98b00;
+}
+
+.stat-box:nth-child(4)::after {
+    background-color: #e98b00;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Mobile screens (1 column) */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .stat-box h2 {
+        font-size: 28px;
+    }
+
+    .stat-box p {
+        font-size: 14px;
+    }
+}
+
+.auth-links button {
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.register {
+    background-color: #e74c3c;
+}
+
+/* Navigation */
+nav {
+    background-color: #1e3a5f;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    background-color: #3273dc;
+}
+
+.submit-article {
+    background-color: #e74c3c;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white !important;
+}
+
+/* Info Cards */
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 ustun */
+    gap: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%; /* Butun ekran bo‘ylab */
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(164, 114, 114, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Recommended Journals */
+.recommended-journals {
+    background-color: #1e5b8c;
+    color: white;
+    padding: 30px;
+}
+
+.recommended-journals .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.recommended-journals .header h2 {
+    font-size: 24px;
+}
+
+.recommended-journals .view-all {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Container */
+.journals-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Categories Section */
+.categories {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1; /* Kichik joy egallaydi */
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.categories .active {
+    color: #1e5b8c;
+    font-weight: bold;
+    border-left: 5px solid #1e5b8c;
+    padding-left: 10px;
+}
+
+/* Journals Grid */
+.journal-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 ustun */
+    grid-template-rows: repeat(3, auto); /* 2 qator */
+    gap: 20px;
+    flex: 3; /* Ko‘proq joy egallaydi */
+    padding-left: 20px;
+}
+
+/* Individual Journal Box */
+.journal {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.journal img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Journal Info */
+.journal-info h3 {
+    margin: 0;
+    font-size: clamp(16px, 2vw, 20px); /* Oyna hajmiga qarab shrift */
+    color: #1e5b8c;
+}
+
+.journal-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.journal-info a {
+    display: block;
+    text-decoration: none;
+    color: #1e5b8c;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Oyna hajmiga qarab shrift o'zgarishi */
+.journal-subject {
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: bold;
+    color: #333;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Kichik ekranlar (mobil) */
+@media (max-width: 768px) {
+    .journal-list {
+        grid-template-columns: 1fr; /* 1 ustun */
+        padding-left: 0;
+    }
+}
+
+/* Planshetlar uchun (2 ustun) */
+@media (max-width: 1024px) {
+    .journal-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Juda kichik ekranlar uchun shriftni kamaytirish */
+@media (max-width: 600px) {
+    .journal-subject {
+        font-size: 12px;
+    }
+}
+
+/* O'rtacha ekranlar uchun shriftni o'zgartirish */
+@media (max-width: 1024px) {
+    .journal-subject {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Journals</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color:black;
+        }
+
+        /* Header */
+header {
+    background-color:#1e3a5f;
+    padding: 10px 0;
+    border-bottom: 3px solid #1e3a5f;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 300px;
+    height: 30px;
+    margin-right: 10px;
+}
+        nav {
+            background-color:blue;
+            padding: 10px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 5px;
+            padding: 8px 12px;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            font-size: 0.9em;
+            flex: 0 0 auto;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        nav a:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #007BFF;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 25%;
+            padding: 10px;
+        }
+
+        .content {
+            width: 75%;
+            padding: 10px;
+        }
+
+        .journal-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .journal-item img {
+            width: 75px;
+            height: 75px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .journal-item h3 {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .journal-item p {
+            margin: 5px 0;
+            font-size: 0.8em;
+        }
+
+        .journal-item a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+
+        .journal-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header h1 {
+                margin-bottom: 10px;
+            }
+
+            nav {
+                padding: 5px;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                overflow-x: auto;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 0.9em;
+                text-align: center;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .journal-item {
+                flex-direction: row; /* Make it row again */
+                align-items: center; /* Vertically align items */
+                padding: 10px; /* Adjust padding */
+            }
+
+            .journal-item img {
+                width: 75px; /* Go back to the larger size */
+                height: 75px; /* Go back to the larger size */
+                margin-bottom: 0; /* Remove bottom margin */
+                margin-right: 10px; /* Add right margin */
+            }
+
+            .journal-item h3 {
+                font-size: 1em; /* Go back to the larger font */
+            }
+
+            .journal-item p {
+                font-size: 0.8em; /* Go back to the larger font */
+            }
+
+            .journal-item a {
+                font-size: 0.8em; /* Go back to the larger font */
+                margin-top: 10px; /* Adjust margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="SciencePG Logo">
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="main.html" class="home-link">Home</a>
+        <a href="informations/proceedings.html">Proceedings</a>
+        <div class="dropdown">
+            <a href="informations/info.html">Information</a>
+        </div>
+    </nav>
+    <div class="container">
+        
+        <div class="content">
+            <div id="journal-list">
+                <!-- Journals will be loaded here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        // Sayt yuklanganda journals.json faylini yuklash
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/journals/adminadd.json') // Update the fetch URL
+                .then(response => response.json())
+                .then(journalsData => {
+                    // Sort journals alphabetically by title
+                    journalsData.sort((a, b) => a.journalName.localeCompare(b.journalName));
+
+                    // Jurnallarni ekranga chiqarish
+                    const journalList = document.getElementById('journal-list');
+                    journalList.innerHTML = '';
+
+                    if (journalsData.length === 0) {
+                        journalList.innerHTML = '<p>No journals found.</p>';
+                        return;
+                    }
+
+                    journalsData.forEach(journal => {
+                        const journalItem = document.createElement('div');
+                        journalItem.className = 'journal-item';
+                        journalItem.innerHTML = `
+                            <img src="${journal.imagePath}" alt="${journal.journalName} Image">
+                            <div>
+                                <h3>${journal.journalName}</h3>
+                                <p><strong>Description:</strong> ${journal.description}</p>
+                                <p><strong><span style="color: black;">ISSN:</span></strong> <span style="color: black;">${journal.issn}</span></p>
+                                <p><strong>Author:</strong> ${journal.author ? journal.author : 'N/A'}</p>
+                                <p><strong>Publisher:</strong> ${journal.publisherAt}</p>
+                                <a href="${journal.filePath}" target="_blank" class="read-journal"> Read Journal</a>
+                            </div>
+                        `;
+                        journalList.appendChild(journalItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching journals:', error);
+                });
+        });
+    </script>
+</body>
+</html>

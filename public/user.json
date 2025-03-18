@@ -1,0 +1,37 @@
+[
+  {
+    "username": "men",
+    "email": "men@gmail.com",
+    "password": "men",
+    "confirmPassword": "men",
+    "firstName": "men",
+    "lastName": "men",
+    "country": "Afghanistan",
+    "jobTitle": "Software Engineer",
+    "degree": "Bachelor's"
+  },
+  {
+    "username": "mrbad.005",
+    "password": "men1",
+    "confirmPassword": "men1",
+    "firstName": "bla bla",
+    "lastName": "Iminjonov",
+    "email": "gofurjon128@gmail.com",
+    "additionalEmail": "gofurjon128112@gmail.com",
+    "country": "AndorrA",
+    "jobTitle": "Software Engineer",
+    "degree": "Bachelor's"
+  },
+  {
+    "username": "a",
+    "password": "a",
+    "confirmPassword": "a",
+    "firstName": "a",
+    "lastName": "a",
+    "email": "a@gmail.com",
+    "additionalEmail": "a@gmail.com",
+    "country": "Antigua and Barbuda",
+    "jobTitle": "Teacher",
+    "degree": "PhD"
+  }
+]

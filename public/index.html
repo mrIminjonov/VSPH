@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Vertex Publishing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="SciencePG Logo">
+            </div>
+            <div class="auth-links">
+                <button onclick="window.location.href='login/login.html';">Log in</button>
+                <button onclick="window.location.href='login/registration.html';">Register</button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="login/login.html">Journals</a></li>
+                <li><a href="informations/proceedings.html">Proceedings</a></li>
+                <li><a href="login/login.html">Join </a></li>
+                <li><a href="informations/info.html">Information </a></li>
+                <li><a href="informations/contact.html">Contact</a></li>
+                <li><a href="informations/add-journal.html" class="submit-article">Submit an Article</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="stats-container">
+        <div class="stat-box">
+            <h2>1</h2>
+            <p>Open Access Journals</p>
+        </div>
+        <div class="stat-box">
+            <h2>1</h2>
+            <p>Editorial Board Members and Reviewers</p>
+        </div>
+        <div class="stat-box">
+            <h2>1</h2>
+            <p>Served Universities and Institutions</p>
+        </div>
+        <div class="stat-box">
+            <h2>1</h2>
+            <p>Registered Scholars</p>
+        </div>
+    </div>
+    <section class="info-cards">
+        <div class="card">
+            <p>For Authors</p>
+        </div>
+        <div class="card">
+            <p>For Editors</p>
+        </div>
+        <div class="card">
+            <p>For Reviewers</p>
+        </div>
+        <div class="card">
+            <p>For Conference Organizers</p>
+        </div>
+    </section>
+    
+    <section class="recommended-journals">
+        <div class="header">
+            <h2>📚 Recommended Journals</h2>
+            <a href="login/login.html" class="view-all">View All Journals ➝</a>
+        </div>
+    
+        <div class="journals-container">
+            <aside class="categories">
+                <ul>
+                    <li class="active">Journal of Frontiers of Science </li>
+                    <li class="active">Journal of TechFrontiers </li>
+                    <li class="active">Journal of Medical Horizons </li>
+                    <li class="active">Journal of EcoVision </li>
+                    <li class="active">Journal of SocioWorld </li>
+                    <li class="active">Journal of EconSphere </li>
+                    <li class="active">Journal of EduFuture</li>
+                    <li class="active">Journal of Quantum Insights </li>
+                    <li class="active">Journal of Cultural Nexus </li>
+                    <li class="active">Journal of AgriTech </li>
+                </ul>
+            </aside>
+            
+            <div class="journal-list" id="journalList">
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vertex Science Publishing House. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        fetch('journals/adminadd.json')
+            .then(response => response.json())
+            .then(journals => {
+                const journalList = document.getElementById('journalList');
+                journalList.innerHTML = ''; // Clear existing content
+                journals.forEach(journal => {
+                    const journalDiv = document.createElement('div');
+                    journalDiv.classList.add('journal');
+                    journalDiv.innerHTML = `
+                        <a href="${journal.filePath}" target="_blank">
+                            <img src="${journal.imagePath}" alt="${journal.journalName}">
+                        </a>
+                        <div class="journal-info">
+                            <h3>${journal.journalName}</h3>
+                            <a>Author: ${journal.author ? journal.author : 'N/A'}</a>
+                            <p><strong><span style="color: black;">ISSN:</span></strong> <span style="color: black;">${journal.issn}</span></p>
+                            <a href="login/login.html">🧑‍🏫 Become a Reviewer</a>
+                            <a href="informations/add-journal.html">📝 Submit an Article</a>
+                        </div>
+                    `;
+                    journalList.appendChild(journalDiv);
+                });
+            });
+    </script>
+</body>
+</html>
