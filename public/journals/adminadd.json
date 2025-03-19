@@ -5,7 +5,7 @@
     "description": "payment not confirmed!!!",
     "issn": "1211-1222",
     "imagePath": "journals\\images\\fd905e2b-4fe8-4ba6-87a1-1c31a68af085.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2025-03-11T02:29:00.353Z",
     "author": "Ulug'bek"
   },
@@ -15,7 +15,7 @@
     "description": "Exploring technological advancements.",
     "issn": "2330-8745",
     "imagePath": "journal_of_techfrontiers.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2024-01-15T00:00:00.000Z",
     "author": "Ilon Mask"
   },
@@ -25,7 +25,7 @@
     "description": "Advancing medical science and healthcare.",
     "issn": "2330-8745",
     "imagePath": "journal_of_medical_horizon.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2024-02-20T00:00:00.000Z",
     "author": "Bill Gates"
   },
@@ -35,7 +35,7 @@
     "description": "Focusing on ecological and environmental studies.",
     "issn": "2329-0862",
     "imagePath": "journal_of_ecovision.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2024-03-25T00:00:00.000Z",
     "author": "Stiv Jobs"
   },
@@ -45,7 +45,7 @@
     "description": "Exploring sociological and global issues.",
     "issn": "2471-9743",
     "imagePath": "journal_of_socioworld.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2024-04-30T00:00:00.000Z",
     "author": "G'ofurjon"
   },
@@ -55,7 +55,7 @@
     "description": "Analyzing economic trends and theories.",
     "issn": "2330-8613",
     "imagePath": "journal_of_ecosphere.jpg",
-    "filePath": "journals\\files\\9a1fb057-c9f6-4f7d-8ce4-9af09a0bd99f.pdf",
+    "filePath": "journals\\journal\\1.docx",
     "publishedAt": "2024-05-05T00:00:00.000Z",
     "author": "Jack Ma"
   }
